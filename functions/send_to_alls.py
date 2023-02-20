@@ -4,19 +4,11 @@ import logging
 from aiogram.utils import exceptions
 
 from data.config import ADMINS
-
+from .select_all_channels import get_all_channels
 from loader import db
 
 logging.basicConfig(level=logging.INFO)
 log = logging.getLogger('broadcast')
-
-
-#
-# def get_chats():
-#     """
-#     Return users list
-#     """
-#     yield from Chats.Users()
 
 
 async def send_message(user_id: int, msg) -> bool:
@@ -74,7 +66,7 @@ async def channel_broadcaster(msg) -> str:
     sends = 0
     error_sends = 0
     try:
-        for channel in await db.select_all_channels():
+        for channel in await get_all_channels():
             if await send_message(user_id=channel[0], msg=msg):
                 sends += 1
             else:

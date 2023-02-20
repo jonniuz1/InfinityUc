@@ -1,4 +1,3 @@
-CHANNEL=-1001855864551
 BOT_LINK = "https://t.me/InfinityucBot"
 BOT_NAME = 'Infinity UC'
 LINK_TO_CHANNEL = 'https://t.me/infinityuc'
